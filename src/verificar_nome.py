@@ -1,8 +1,5 @@
-from tkinter.constants import HORIZONTAL
-
 import flet as fl
 from flet import ThemeMode, Text, TextField, OutlinedButton, Column, CrossAxisAlignment
-from flet.controls.border_radius import horizontal
 
 
 def main(page: fl.Page):

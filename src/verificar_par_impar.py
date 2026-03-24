@@ -1,9 +1,6 @@
 import flet as fl
 from flet import ThemeMode, Text, TextField, OutlinedButton, Column, CrossAxisAlignment
 
-
-
-
 def main(page: fl.Page):
     # configurações
     page.title = "Verificar Numero"

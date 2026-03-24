@@ -34,7 +34,6 @@ def main(page: fl.Page):
             page.update()
 
 
-
     # Componentes
     t1 = Text()
     input_idade = TextField(label="Digite Ano de nacimento:")

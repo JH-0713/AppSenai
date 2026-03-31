@@ -1,5 +1,4 @@
 from typing import Container
-
 import flet as fl
 from flet import ThemeMode, Text, TextField, OutlinedButton, Column, CrossAxisAlignment, Container, Colors, FontWeight, \
     ElevatedButton, FilledButton, FilledTonalButton
@@ -13,7 +12,7 @@ dt_now = dt.datetime.now()
 def main(page: fl.Page):
     # configurações
     page.title = "APP"
-    page.theme_mode = ThemeMode.DARK  # ThemeMode.LIGHT ou DARK
+    page.theme_mode = ThemeMode.LIGHT  # ThemeMode.LIGHT ou DARK
     page.window.width = 400
     page.window.height = 700
 

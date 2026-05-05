@@ -16,14 +16,12 @@ def main(page: ft.Page):
     # Funções
     def cadastrar_f():
         t1.value = (f''',
-        
                 Nome:  {input_nome.value}
                 ID:  {input_id.value}
                 Carga Horária:  {input_carga_h.value}h
                 Função:  {input_funcao.value}
                 Faltas:  {input_faltas.value}
                 Sálario:  {input_salario.value} R$
-                
             ''')
         tem_erro = False
         if not input_nome.value:

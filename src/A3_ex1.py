@@ -6,6 +6,13 @@ from flet import ThemeMode, Text, TextField, Column, Colors, View, Button, AppBa
 from flet.controls.material.icons import Icons
 
 
+# Classe
+class Perfil:
+    def __init__(self, nome, sexo, profissao="Profissão"):
+        self.nome = nome
+        self.profissao = profissao
+        self.sexo = sexo
+
 def main(page: ft.Page):
     # configurações
     page.title = "Exercicio 1 - Perfil"
@@ -25,9 +32,11 @@ def main(page: ft.Page):
 
     def definir_img(s1):
         if s1 == "Masculino":
-            return Icon(Icons.MAN)
+            return Icon(Icons.MAN, color=Colors.BLUE)
         elif s1 == "Feminino":
-            return Icon(Icons.WOMAN)
+            return Icon(Icons.WOMAN, color=Colors.PINK)
+        else:
+            return Icon(Icons.ACCOUNT_CIRCLE_ROUNDED)
 
     ## Monta lista de ANDROID
     def montar_lista_padrao():
@@ -36,9 +45,9 @@ def main(page: ft.Page):
             list_view.controls.append(
                 ft.ListTile(
                     bgcolor=Colors.GREY_300,
-                    leading=definir_img(i["sexo"]),
-                    title=i["nome"],
-                    subtitle=i["profissão"],
+                    leading=definir_img(i.sexo),
+                    title=i.nome,
+                    subtitle=i.profissao,
                     trailing=PopupMenuButton(
                         icon=Icon(Icons.MORE_VERT_OUTLINED),
                         items=[
@@ -55,9 +64,9 @@ def main(page: ft.Page):
 
     ## Adiciona um item na lista
     def registrar_dado():
-        nome = input_nome.value.strip()
-        profissao = input_profissao.value.strip()
-        sexo = input_sexo.value.strip()
+        nome = input_nome.value
+        profissao = input_profissao.value
+        sexo = input_sexo.value
 
         tem_erro = False
         if not nome:
@@ -65,33 +74,26 @@ def main(page: ft.Page):
             tem_erro = True
         else:
             input_nome.error = None
-            tem_erro = False
 
         if not profissao:
             input_profissao.error = "Campo Obrigatório"
             tem_erro = True
         else:
             input_profissao.error = None
-            tem_erro = False
 
         if not sexo:
             input_sexo.error = "Campo Obrigatório"
             tem_erro = True
         else:
             input_sexo.error = None
-            tem_erro = False
 
-        perfil1 = {
-            "nome": nome,
-            "profissão": profissao,
-            "sexo": sexo,
-        }
-
-        lista_dados.append(perfil1)
-        input_nome.value = ""
-        input_profissao.value = ""
-        input_sexo.value = ""
-        navigation("/listar_perfil")
+        if not tem_erro:
+            pf1 = Perfil(nome=nome.strip(), profissao=profissao.strip(), sexo=sexo.strip())
+            lista_dados.append(pf1)
+            input_nome.value = ""
+            input_profissao.value = ""
+            input_sexo.value = ""
+            navigation("/listar_perfil")
 
         montar_lista_padrao()
 

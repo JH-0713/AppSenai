@@ -34,7 +34,7 @@ def main(page: ft.Page):
             input_cep.error = "Campo Invalido"
 
         if not tem_erro:
-            input_nc.value = ""
+
             end1 = get_endereco(cep)
             text_cidade.value = end1["localidade"]
             text_uf.value = end1["uf"]
